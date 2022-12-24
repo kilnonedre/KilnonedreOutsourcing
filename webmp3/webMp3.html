@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    main {
+        height: 100vh;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: gray;
+    }
+    
+    #lyrics {
+        height: 75%;
+        overflow-y: scroll;
+        width: 25%;
+    }
+    
+     ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+        background-color: transparent;
+    }
+    /*滚动条的轨道*/
+    
+     ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    /*滚动条的滑块按钮*/
+    
+     ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgb(7, 61, 92);
+        box-shadow: inset 0 0 5px rgb(7, 61, 92);
+    }
+    /*滚动条的上下两端的按钮*/
+    
+     ::-webkit-scrollbar-button {
+        height: 0;
+        background-color: rgb(7, 61, 92);
+    }
+    
+    p {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    
+    .jj {
+        font-size: 20px;
+        transition-duration: 500ms;
+        font-weight: bold;
+    }
+    
+    ul {
+        width: 100%;
+        height: 75px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    li {
+        height: 100%;
+        width: 75px;
+        list-style: none;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        overflow: hidden;
+    }
+    
+    li::after {
+        content: '';
+        height: 100%;
+        width: 100%;
+        display: block;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background-color: azure;
+        background-size: cover;
+        background-position-x: center;
+        filter: blur(10px);
+    }
+    
+    li:hover {
+        margin: -20px 0 0 0;
+        transition: all 0.5s ease 0s;
+    }
+    
+    li:hover::after {
+        transition: all 0.5s ease 0s;
+        filter: blur(0px);
+    }
+    
+    ul li:nth-child(1)::after {
+        background-image: url(./public/cover/EyeoftheTiger.jpg);
+    }
+    
+    ul li:nth-child(2)::after {
+        background-image: url(./public/cover/春江花月夜.jpg);
+    }
+    
+    ul li:nth-child(3)::after {
+        background-image: url(./public/cover/让一切随风.jpg);
+    }
+    
+    #disk {
+        transition: all 1s linear 0s;
+        background-image: url('./public/cover/cipan.png');
+        width: 250px;
+        height: 250px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    #disk>img {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        width: 170px;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+
+    <main>
+        <div>
+            <div id="disk">
+                <img src="./public/cover/EyeoftheTiger.jpg" alt="">
+            </div>
+            <div>
+                <ul>
+                    <li id="fir"></li>
+                    <li id="sec"></li>
+                    <li id="thi"></li>
+                </ul>
+            </div>
+            <div>
+                <audio controls>
+                    <source src="">
+                </audio>
+            </div>
+        </div>
+        <div id="lyrics"></div>
+    </main>
+
+    <script>
+        var song = new Object;
+        var joker;
+        var ps;
+        var t;
+        var flag = 1;
+        const first = {
+            title: 'Eye Of The Tiger',
+            singer: 'Survivor',
+            album: 'Rocky Balboa: The Best Of Rocky',
+            '50.314': "Risin' up <br /> 重新站起",
+            '52.207': 'back on the street <br /> 回到街上',
+            '54.533': 'did my time took my chances <br /> 享受时光，抓住机遇',
+            '58.846': 'went the distance <br /> 经历了很多',
+            '60.464': "now i'm back on my feet <br /> 现在我才真正崛起",
+            '62.345': 'just a man and his will to survive <br /> 现在只剩一个人和生存的欲望',
+            '67.711': 'so many times <br /> 有很多次',
+            '69.093': 'it happens too fast <br /> 发生的太突然',
+            '72.287': 'you trade your passion for glory <br /> 你为了荣耀而放弃了激情',
+            '76.757': "don't lose your grip on the dreams of the past <br /> 不要在追逐往昔的梦的路上迷失",
+            '80.353': 'you must fight just to keep them alive <br /> 为了梦想延续，你必须斗争',
+            '84.798': 'Chorus <br /> <和声>',
+            '85.756': "It's the eye of the tiger <br /> 这就是虎之眼",
+            '88.093': "it's the thrill of the fight <br /> 这是战斗的震撼",
+            '89.944': "risin' up to the challenge of our rival <br /> 在我们对手的挑战下顽强崛起",
+            '93.627': 'and the last known survivor stalks his prey in the night <br /> 最后的生还者在黑夜中追寻猎物',
+            '98.098': "and he's watchin us all with the eye <br /> 他用他的眼睛注视着我们",
+            '102.758': 'of the tiger <br /> 用他的虎之眼',
+            '108.264': 'Face to face <br /> 面对面',
+            '110.050': 'out in the heat <br /> 时刻兴奋',
+            '112.634': "hangin' tough <br /> 坚持住",
+            '113.972': "stayin' hungry <br /> 保持饥饿",
+            '117.072': 'they stack the odds <br /> 尽管他们优势巨大',
+            '118.967': 'still we take to the street <br /> 我们依旧要战斗',
+            '120.853': 'for the kill with the will to survive <br /> 求生的欲望驱使着我们去杀戮',
+            '125.070': "It's the eye of the tiger <br /> 这就是虎之眼",
+            '127.763': "it's the thrill of the fight <br /> 是战斗的震撼",
+            '129.448': "risin' up to the challenge of our rival <br /> 在我们对手的挑战下顽强崛起",
+            '133.923': 'and the last known survivor stalks his prey in the night <br /> 最后的生还者在黑夜中追寻猎物',
+            '138.243': "and he's watchin us all with the eye <br /> 他用他的眼睛注视着我们",
+            '143.075': 'of the tiger <br /> 用他的虎之眼',
+            '152.935': "Risin' up <br /> 崛起",
+            '154.547': 'straight to the top <br /> 一路向着顶点',
+            '157.337': 'had the guts <br /> 带着勇气',
+            '158.679': 'got the glory <br /> 带着荣耀',
+            '161.917': 'went the distance <br /> 经历了这么多',
+            '163.489': "now i'm not gonna stop <br /> 现在我不会停下脚步",
+            '165.497': 'just a man and his will to survive <br /> 只剩下一个人和生存的欲望',
+            '169.700': "It's the eye of the tiger <br /> 这就是虎之眼",
+            '172.204': "it's the thrill of the fight <br /> 是战斗的震撼",
+            '174.152': "risin' up to the challenge of our rival <br /> 在我们对手的挑战下顽强崛起",
+            '178.512': 'and the last known survivor stalks his prey in the night <br /> 最后的生还者在黑夜中追寻猎物',
+            '182.822': "and he's watchin us all with the eye <br /> 他用他的眼睛注视着我们",
+            '189.703': 'of the tiger <br /> 用他的虎之眼',
+        }
+        const second = {
+            title: '春江花月夜',
+            singer: '古筝',
+            album: '纯音乐',
+        }
+        const third = {
+            title: '让一切随风',
+            singer: '陈慧娴',
+            album: 'By Heart',
+            '29.295': '风中风中 心里冷风',
+            '33.116': '吹失了梦',
+            '36.426': '事未过去 就已失踪',
+            '40.349': '此刻有种种心痛',
+            '43.726': '心中心中 一切似空',
+            '47.253': '天黑天光都似梦',
+            '50.910': '迷迷惘惘 聚满心中',
+            '54.993': '追踪一片冷的风',
+            '57.976': '各种空虚 冷冷冷',
+            '62.249': '吹起吹起风里梦',
+            '65.495': '过去的心 火般灼热',
+            '69.524': '今天已变了冰冻',
+            '72.264': '记忆中 突然又痛',
+            '76.731': '只因空虚再作弄',
+            '79.876': '你似北风 吹走我梦',
+            '84.080': '就让一切随风',
+            '101.892': '风中风中 心里冷风',
+            '105.835': '吹失了梦',
+            '109.038': '事未过去 就已失踪',
+            '113.195': '此刻有种种心痛',
+            '116.301': '心中心中 一切似空',
+            '120.476': '天黑天光都似梦',
+            '123.586': '迷迷惘惘 聚满心中',
+            '127.669': '追踪一片冷的风',
+            '130.504': '各种空虚 冷冷冷',
+            '134.984': '吹起吹起风里梦',
+            '138.125': '过去的心 火般灼热',
+            '142.259': '今天已变了冰冻',
+            '144.980': '记忆中 突然又痛',
+            '149.494': '只因空虚再作弄',
+            '152.662': '你似北风 吹走我梦',
+            '157.247': '就让一切随风',
+            '188.607': '各种空虚 冷冷冷',
+            '193.189': '吹起吹起风里梦',
+            '196.233': '过去的心 火般灼热',
+            '200.408': '今天已变了冰冻',
+            '203.276': '记忆中 突然又痛',
+            '207.708': '只因空虚再作弄',
+            '210.923': '你似北风 吹走我梦',
+            '215.488': '就让一切随风'
+        }
+        const lyrics = document.getElementById('lyrics');
+        const audio = document.getElementsByTagName('audio')[0];
+        const source = audio.getElementsByTagName('source')[0];
+        const lis = document.getElementsByTagName('li');
+        const diskImg = document.getElementById('disk').getElementsByTagName('img')[0];
+
+        audio.addEventListener('pause', () => {
+            clearInterval(t);
+        })
+
+        audio.addEventListener('play', () => {
+            t = setInterval(time, 1000);
+        })
+
+        function time() {
+            disk.style.transform = 'rotate(' + 90 * flag + 'deg)';
+            flag++;
+            for (let i = 3; i < joker.length; i++) {
+                if (audio.currentTime < joker[i + 1] && audio.currentTime > joker[i]) {
+                    for (let j = 3; j < joker.length; j++) {
+                        ps[j].classList.remove("jj");
+                    }
+                    ps[i].classList.add("jj");
+                }
+            }
+        }
+
+        lyrics.addEventListener('click', function(e) {
+            audio.currentTime = parseInt(e.target.id)
+        })
+
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click', function() {
+                disk.style.transform = 'rotate(0deg)';
+                clearInterval(t);
+                flag = 1;
+                if (this.id === 'fir') {
+                    diskImg.src = "./public/cover/EyeoftheTiger.jpg";
+                    audio.src = './public/mp3/EyeoftheTiger.mp3'
+                    song = first;
+                } else if (this.id === 'sec') {
+                    diskImg.src = "./public/cover/春江花月夜.jpg";
+                    audio.src = './public/mp3/春江花月夜.mp3'
+                    song = second;
+                } else {
+                    diskImg.src = "./public/cover/让一切随风.jpg";
+                    audio.src = './public/mp3/让一切随风.mp3'
+                    song = third;
+                }
+                let test = '';
+                for (let t in song) {
+                    test = test + '<p id = "' + t + '">' + song[t] + '</p>'
+                }
+                lyrics.innerHTML = test;
+
+                ps = lyrics.getElementsByTagName('p');
+
+                for (let i = 0; i < 3; i++) {
+                    ps[i].classList.add('jj');
+                }
+
+                joker = Object.keys(song);
+                for (let i = 3; i < joker.length; i++) {
+                    joker[i] = parseInt(joker[i]);
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
