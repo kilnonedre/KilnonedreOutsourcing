@@ -1,0 +1,1 @@
+import{C as e}from"./CommonHeader.a228caf3.js";import{_ as r,r as t,o as n,c as a,d as c}from"./index.22501be6.js";import"./api.22883e35.js";const s={components:{CommonHeader:e}};function m(p,_,d,i,l,f){const o=t("common-header");return n(),a("div",null,[c(o,{title:"\u6574\u6751\u4ED8\u8D39"})])}var h=r(s,[["render",m]]);export{h as default};

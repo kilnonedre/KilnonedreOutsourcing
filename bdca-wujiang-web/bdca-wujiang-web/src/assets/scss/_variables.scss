@@ -1,0 +1,39 @@
+$blue: #2C7EF8;
+$orange: #ff7a5c;
+
+$text:#303133;
+$subtext:#acb0b8;
+$light: #E4E7ED;
+$lighter: #f4f4f8;
+
+
+ /* 改变 Element 主题色 */
+@forward "element-plus/theme-chalk/src/common/var.scss" with
+    (
+        // do not use same name, it will override.
+        $font-path: "element-plus/dist/fonts",
+        $colors: (
+            "primary": (
+                "base": #2C7EF8,
+            ),
+        ),
+    );
+
+@import "element-plus/theme-chalk/src/index.scss";
+
+// 媒体查询
+$breakpoints: (
+    "xs": "only screen and ( max-width: 767px)",
+    "sm": "only screen and ( min-width: 768px)",
+    "md": "only screen and ( min-width: 992px)",
+    "lg": "only screen and ( min-width: 1200px)",
+    "xl": "only screen and ( min-width: 1536px)",
+) !default;
+
+// 媒体查询
+@mixin respond-to($breakpoint) {
+    $query: map-get($breakpoints, $breakpoint);
+    @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+        @content;
+    }
+}

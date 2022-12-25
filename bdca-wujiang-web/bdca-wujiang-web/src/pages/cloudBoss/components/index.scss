@@ -1,0 +1,470 @@
+@media screen and (min-height: 1080px) {
+    .page {
+        width: 100vw;
+        height: 100vh;
+
+        .title_bg {
+            width: calc(100%);
+            height: 90px;
+            background: url("../../../assets/img/Reportscreen/title_3x.png") 100% no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .section_17 {
+            width: calc(100%);
+            height: 100%;
+            //   background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/ps2s8pquohwcvmhjmha7uhpjm0pxye3kffk3a8f9a80-9a2a-4ad3-a01d-4eea636a315a) -106px -191px
+            // background: url('../../../../public/背景@3x.png') no-repeat center center /100% 100%;
+            background: url("../../../assets/img/Reportscreen/3cee09294e7a8eb4d30c5fb6c58d540.jpg") no-repeat center
+                center / 100% 100%;
+        }
+
+        .report_screen_el-row {
+            width: 100%;
+            height: calc(100% - 110px);
+        }
+
+        .Development_title {
+            display: flex;
+            margin-top: 0.625rem;
+
+            .Development_tag {
+                width: 0.9375rem;
+                height: 2.575rem;
+                background-color: #00c6ff;
+            }
+
+            .title {
+                flex: 1;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                background: linear-gradient(90deg, rgba(37, 88, 187, 0.99) 1%, rgba(37, 88, 187, 0) 100%);
+                margin-left: 0.25rem;
+                padding: 0px 1.125rem;
+                font-weight: bold;
+                font-size: 1.75rem;
+            }
+        }
+
+        .Development_analysis {
+            background: url("../../../assets/img/Reportscreen/bottom_bg.png") no-repeat;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 28rem;
+            margin-top: 0.625rem;
+            padding: 0.625rem;
+        }
+
+        .Development_analysis2 {
+            background: url("../../../assets/img/Reportscreen/bottom_bg.png") no-repeat;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 28.4375rem;
+            margin-top: 0.625rem;
+        }
+
+        .analysis_cumulative {
+            display: flex;
+            color: #fff;
+            width: 100%;
+            font-size: 1.0275rem;
+
+            .analysis_title {
+                width: 20%;
+                display: flex;
+                align-items: center;
+
+                .number {
+                    font-size: 2.175rem;
+                    color: #00eaff;
+                    margin-left: 0.625rem;
+                }
+            }
+        }
+
+        .analysis_echarts_title {
+            color: #fff;
+            margin-top: 0.375rem;
+            font-size: 1.5rem;
+        }
+
+        .analysis_mychart {
+            width: 100%;
+            height: 19.5625rem;
+        }
+
+        .Development_analysis2_title {
+            display: flex;
+
+            .Development_analysis2_select {
+                padding: 0.5125rem 0.825rem;
+                border: 0.0825rem solid #2c7ef8;
+                color: #fff;
+                font-size: 0.75rem;
+                cursor: pointer;
+
+                &:first-child {
+                    border-top-left-radius: 0.25rem;
+                    border-bottom-left-radius: 0.25rem;
+                }
+
+                &:last-child {
+                    border-top-right-radius: 0.25rem;
+                    border-bottom-right-radius: 0.25rem;
+                }
+            }
+
+            .Development_analysis2_select1 {
+                background-color: #2c7ef8;
+                // transition: all 0.1s;
+                padding: 0.5125rem 0.825rem;
+            }
+        }
+
+        .Development_analysis_one {
+            padding: 0.625rem;
+
+            .Development_analysis_two_title {
+                color: #fff;
+                font-size: 1.55rem;
+                font-weight: bold;
+            }
+
+            .Development_analysis_two_analsis {
+                width: 100%;
+                height: 22.5rem;
+                margin-top: 0.9375rem;
+            }
+        }
+
+        .package {
+            background: url("../../../assets/img/Reportscreen/package_bj.png") no-repeat;
+            background-size: 100% 100%;
+            height: 22.375rem;
+            margin-top: 0.625rem;
+        }
+
+        .package_analysis {
+            width: 100%;
+            ::v-deep .el-col {
+                height: 15.375rem !important;
+                & > div {
+                    height: 100%;
+                }
+            }
+        }
+
+        .package_title {
+            display: flex;
+            // padding: 5px;
+            padding: 0.3125rem 0 0.3125rem 4.875rem;
+
+            .ts {
+                font-size: 1.275rem;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .package_title_titles {
+                display: flex;
+                position: relative;
+                align-items: center;
+                margin-left: 1.25rem;
+                font-size: 1.275rem;
+                color: #fff;
+                font-weight: bold;
+                border-bottom: 0.0625rem solid #4ef0ff;
+                padding-bottom: 0.125rem;
+                cursor: pointer;
+
+                .before {
+                    content: "";
+                    position: absolute;
+                    border-bottom: 0.0625rem solid #00c6ff;
+                    width: 4.375rem;
+                    bottom: 0px;
+                    left: 0.825rem;
+                    transition: all 0.5s;
+                }
+            }
+
+            .package_title_select {
+                padding: 0px 0.965rem;
+                
+            }
+        }
+
+        .Heroes {
+            background: url("../../../assets/img/Reportscreen/bottom_3x.png") no-repeat;
+            background-size: 100% 100%;
+            height: 34.12rem;
+            margin-top: 0.5625rem;
+            padding: 0.625rem;
+
+            .Top10 {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #fff;
+                text-align: center;
+                margin-top: 0.3125rem;
+            }
+        }
+
+        .Heroes_Personal_accumulation {
+            .accumulation_title {
+                font-size: 1.6rem;
+                text-align: center;
+                color: #fff;
+                font-weight: bold;
+                margin-top: -0.3rem;
+            }
+
+            .accumulation_ranking {
+                width: 100%;
+                height: 11.075rem;
+                background: rgba(0, 198, 255, 0.1);
+                border: 1px solid #00c6ff;
+                margin-top: 0.375rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                padding: 0.3125rem;
+                transition: all 0.5s;
+
+                .scrollbar {
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+                    scrollbar-width: none;
+                    scroll-behavior: smooth;
+                }
+
+                .accumulation_ranking_one1_one5::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .accumulation_ranking_one1_one5 {
+                    width: 50%;
+                    height: 100%;
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+
+                    scrollbar-width: none;
+                    scroll-behavior: smooth;
+
+                    .text1 {
+                        font-size: 0.975rem;
+                        margin: 0.625rem 0;
+                    }
+
+                    .text2 {
+                        font-size: 0.975rem;
+                        margin: 0.625rem 0.9375rem;
+                    }
+
+                    .text {
+                        display: flex;
+                        font-size: 0.975rem;
+                        margin: 0.625rem 0;
+                        align-items: center;
+
+                        .one {
+                            color: #eec444;
+                        }
+
+                        .two {
+                            color: #dddddd;
+                        }
+
+                        .three {
+                            color: #da8639;
+                        }
+
+                        span {
+                            margin-left: 0.25rem;
+                        }
+
+                        .img {
+                            width: 1.25rem;
+                            height: 1.25rem;
+                        }
+
+                        img {
+                            box-sizing: border-box;
+                            width: 1.25rem;
+                            height: 1.25rem;
+                        }
+                    }
+                }
+
+                .ranking_one1_one5::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .ranking_one1_one5 {
+                    width: 67%;
+                    height: 100%;
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+                    scrollbar-width: none;
+
+                    .text {
+                        padding: 0.375rem 0.125rem;
+                        font-size: 0.875rem;
+                        display: flex;
+                        align-items: center;
+
+                        .one {
+                            color: #eec444;
+                        }
+
+                        .two {
+                            color: #dddddd;
+                        }
+
+                        .three {
+                            color: #da8639;
+                        }
+
+                        span {
+                            margin-left: 0.25rem;
+                        }
+
+                        .img {
+                            width: 1.25rem;
+                            height: 1.25rem;
+                        }
+
+                        img {
+                            box-sizing: border-box;
+                            width: 1.25rem;
+                            height: 1.25rem;
+                        }
+                    }
+                }
+
+                .ranking_one1_one6 {
+                    flex: 1;
+                    font-size: 0.85rem;
+                    height: 100%;
+                    border-left: 0.0625rem solid #e0e0e0;
+                    padding-left: 0.625rem;
+
+                    .ranking_one1_one6_text {
+                        display: flex;
+                        align-items: center;
+                        margin-left: 0.625rem;
+
+                        margin: -0.0625rem 0.625rem 0.125rem 0;
+                        text-align: center;
+                    }
+
+                    .text_top {
+                        width: 1.25rem;
+                        // height: 20px;
+                        margin-right: 0.3125rem;
+                        font-size: 0.5rem;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+                .accumy-top {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .ranking_one1_one6::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .Heroes_Personal_accumulation_2 {
+            width: 100%;
+            height: 16.58rem;
+            background: rgba(0, 198, 255, 0.1);
+            border: 0.0625rem solid #00c6ff;
+            margin-top: 0.3125rem;
+
+            .accumulation_day_top10::-webkit-scrollbar {
+                display: none;
+            }
+
+            .accumulation_day_top10 {
+                padding: 0.125rem;
+                // height: 100%;
+                width: 100%;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                scrollbar-width: none;
+
+                .day_top {
+                    display: flex;
+                    align-items: center;
+                    font-size: 0.7rem;
+                    padding: 0.0515rem 0px;
+
+                    img {
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+
+                    .day_top_number {
+                        width: 2.5rem;
+                        text-align: center;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.295rem;
+                        font-weight: bold;
+                    }
+
+                    .day_top_text {
+                        display: flex;
+                        align-items: center;
+                        font-weight: bold;
+                        font-size: 0.9rem;
+                        color: #fff;
+                        justify-content: space-between;
+                        padding-bottom: 0.0625rem;
+                        flex: 1;
+                    }
+
+                    .one {
+                        color: #eec444;
+                    }
+
+                    .two {
+                        color: #dddddd;
+                    }
+
+                    .three {
+                        color: #da8639;
+                    }
+
+                    .default {
+                        color: #00eaff;
+                        font-size: 1.35rem;
+                    }
+
+                    span {
+                        margin-left: 0.25rem;
+                    }
+
+                    .img {
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+
+                    img {
+                        box-sizing: border-box;
+                        width: 1.45rem;
+                        height: 1.45rem;
+                    }
+                }
+            }
+        }
+    }
+}

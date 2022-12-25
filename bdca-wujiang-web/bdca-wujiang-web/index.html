@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运行维护数据统计分析系统</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="/config.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+<script>
+  var timer = null;
+  //解决：屏幕横屏竖屏的时候没办法及时更新页面，需要刷新才可以--适用移动端
+  /*function setRem(){
+    clearTimeout(timer);
+    // 延迟屏幕横竖转换
+    timer = setTimeout(function () {
+      document.documentElement.style.fontSize=document.documentElement.offsetWidth/90+"px"; //同上
+    }, 200);
+  }*/
+  //pc端
+  function setRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 130 + "px"; //同上
+  }
+  setRem();
+  if ('addEventListener' in document) {
+    document.addEventListener('orientationchange', function () {
+      setRem();
+    }, false);
+    window.addEventListener('resize', function () {
+      setRem();
+    }, false);
+  }
+</script>
+
+</html>
