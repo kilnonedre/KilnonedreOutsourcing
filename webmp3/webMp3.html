@@ -21,13 +21,12 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: gray;
     }
     
     #lyrics {
         height: 75%;
         overflow-y: scroll;
-        width: 25%;
+        width: 35%;
     }
     
      ::-webkit-scrollbar {
@@ -55,12 +54,13 @@
     }
     
     p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 25px;
+        text-align: center;
     }
     
     .jj {
-        font-size: 20px;
+        font-size: 18px;
         transition-duration: 500ms;
         font-weight: bold;
     }
@@ -107,19 +107,18 @@
     }
     
     ul li:nth-child(1)::after {
-        background-image: url(./public/cover/EyeoftheTiger.jpg);
+        background-image: url(./public/cover/uchiagehanabi.jpg);
     }
     
     ul li:nth-child(2)::after {
-        background-image: url(./public/cover/春江花月夜.jpg);
+        background-image: url(./public/cover/Palpitating.jpg);
     }
     
     ul li:nth-child(3)::after {
-        background-image: url(./public/cover/让一切随风.jpg);
+        background-image: url(./public/cover/waitForYouToFinishClass.jpg);
     }
     
     #disk {
-        transition: all 1s linear 0s;
         background-image: url('./public/cover/cipan.png');
         width: 250px;
         height: 250px;
@@ -127,6 +126,10 @@
         background-size: cover;
         margin: 0 auto;
         position: relative;
+    }
+    
+    .diskAction {
+        transition: all 1s linear 0s;
     }
     
     #disk>img {
@@ -144,7 +147,7 @@
     <main>
         <div>
             <div id="disk">
-                <img src="./public/cover/EyeoftheTiger.jpg" alt="">
+                <img src="./public/cover/waitForYouToFinishClass.jpg" alt="">
             </div>
             <div>
                 <ul>
@@ -169,103 +172,144 @@
         var t;
         var flag = 1;
         const first = {
-            title: 'Eye Of The Tiger',
-            singer: 'Survivor',
-            album: 'Rocky Balboa: The Best Of Rocky',
-            '50.314': "Risin' up <br /> 重新站起",
-            '52.207': 'back on the street <br /> 回到街上',
-            '54.533': 'did my time took my chances <br /> 享受时光，抓住机遇',
-            '58.846': 'went the distance <br /> 经历了很多',
-            '60.464': "now i'm back on my feet <br /> 现在我才真正崛起",
-            '62.345': 'just a man and his will to survive <br /> 现在只剩一个人和生存的欲望',
-            '67.711': 'so many times <br /> 有很多次',
-            '69.093': 'it happens too fast <br /> 发生的太突然',
-            '72.287': 'you trade your passion for glory <br /> 你为了荣耀而放弃了激情',
-            '76.757': "don't lose your grip on the dreams of the past <br /> 不要在追逐往昔的梦的路上迷失",
-            '80.353': 'you must fight just to keep them alive <br /> 为了梦想延续，你必须斗争',
-            '84.798': 'Chorus <br /> <和声>',
-            '85.756': "It's the eye of the tiger <br /> 这就是虎之眼",
-            '88.093': "it's the thrill of the fight <br /> 这是战斗的震撼",
-            '89.944': "risin' up to the challenge of our rival <br /> 在我们对手的挑战下顽强崛起",
-            '93.627': 'and the last known survivor stalks his prey in the night <br /> 最后的生还者在黑夜中追寻猎物',
-            '98.098': "and he's watchin us all with the eye <br /> 他用他的眼睛注视着我们",
-            '102.758': 'of the tiger <br /> 用他的虎之眼',
-            '108.264': 'Face to face <br /> 面对面',
-            '110.050': 'out in the heat <br /> 时刻兴奋',
-            '112.634': "hangin' tough <br /> 坚持住",
-            '113.972': "stayin' hungry <br /> 保持饥饿",
-            '117.072': 'they stack the odds <br /> 尽管他们优势巨大',
-            '118.967': 'still we take to the street <br /> 我们依旧要战斗',
-            '120.853': 'for the kill with the will to survive <br /> 求生的欲望驱使着我们去杀戮',
-            '125.070': "It's the eye of the tiger <br /> 这就是虎之眼",
-            '127.763': "it's the thrill of the fight <br /> 是战斗的震撼",
-            '129.448': "risin' up to the challenge of our rival <br /> 在我们对手的挑战下顽强崛起",
-            '133.923': 'and the last known survivor stalks his prey in the night <br /> 最后的生还者在黑夜中追寻猎物',
-            '138.243': "and he's watchin us all with the eye <br /> 他用他的眼睛注视着我们",
-            '143.075': 'of the tiger <br /> 用他的虎之眼',
-            '152.935': "Risin' up <br /> 崛起",
-            '154.547': 'straight to the top <br /> 一路向着顶点',
-            '157.337': 'had the guts <br /> 带着勇气',
-            '158.679': 'got the glory <br /> 带着荣耀',
-            '161.917': 'went the distance <br /> 经历了这么多',
-            '163.489': "now i'm not gonna stop <br /> 现在我不会停下脚步",
-            '165.497': 'just a man and his will to survive <br /> 只剩下一个人和生存的欲望',
-            '169.700': "It's the eye of the tiger <br /> 这就是虎之眼",
-            '172.204': "it's the thrill of the fight <br /> 是战斗的震撼",
-            '174.152': "risin' up to the challenge of our rival <br /> 在我们对手的挑战下顽强崛起",
-            '178.512': 'and the last known survivor stalks his prey in the night <br /> 最后的生还者在黑夜中追寻猎物',
-            '182.822': "and he's watchin us all with the eye <br /> 他用他的眼睛注视着我们",
-            '189.703': 'of the tiger <br /> 用他的虎之眼',
+            title: '打上花火',
+            singer: '米津玄師',
+            album: '打上花火',
+            '19.44': 'あの日見わたした渚',
+            '24.45': '今も思い出すんだ',
+            '29.49': '砂の上に刻んだ言葉',
+            '34.49': '君の後ろ姿',
+            '39.49': '寄り返す波が足元をよぎり',
+            '45.38': '何かをさらう',
+            '49.48': '夕凪の中',
+            '52.96': '日暮れだけが通り過ぎていく',
+            '59.48': 'パッと光って咲いた',
+            '62.99': '花火を見てた',
+            '64.50': 'きっとまだ終わらない夏が',
+            '69.42': '曖昧な心を',
+            '71.93': '解かして繋いだ',
+            '74.47': 'この夜が続いて欲しかった',
+            '89.91': 'あと何度君と同じ花火を',
+            '92.69': '見られるかなって',
+            '94.49': '笑う顔に何ができるだろうか',
+            '99.82': '傷つくこと喜ぶこと',
+            '102.33': '繰り返す波と情動',
+            '104.44': '焦燥',
+            '105.41': '最終列車の音',
+            '110.05': '何度でも言葉にして',
+            '113.47': '君を呼ぶよ',
+            '114.69': '波を選びもう一度',
+            '120.13': 'もう二度と悲しまずに済むように',
+            '137.14': 'ハッと息を呑めば',
+            '139.46': '消えちゃいそうな光が',
+            '141.96': 'きっとまだ胸に住んでいた',
+            '146.91': '手を伸ばせば触れた',
+            '149.49': 'あったかい未来は',
+            '152.02': '密かにふたりを見ていた',
+            '157.91': 'パッと花火が',
+            '159.26': 'パッと花火が',
+            '160.51': '夜に咲いた',
+            '161.67': '夜に咲いた',
+            '163.11': '夜に咲いて',
+            '164.20': '夜に咲いて',
+            '165.50': '静かに消えた',
+            '166.75': '静かに消えた',
+            '168.00': '離さないで',
+            '169.25': '離れないで',
+            '170.46': 'もう少しだけ',
+            '171.67': 'もう少しだけ',
+            '172.94': 'もう少しだけこのままで',
+            '186.87': 'あの日見わたした渚',
+            '191.99': '今も思い出すんだ',
+            '197.00': '砂の上に刻んだ言葉',
+            '202.01': '君の後ろ姿',
+            '207.00': 'パッと光って咲いた花火を見てた',
+            '212.01': 'きっとまだ終わらない夏が',
+            '216.87': '曖昧な心を解かして繋いだ',
+            '221.96': 'この夜が続いて欲しかった',
         }
         const second = {
-            title: '春江花月夜',
-            singer: '古筝',
-            album: '纯音乐',
+            title: '雀跃',
+            singer: '任然',
+            album: '雀跃',
+            '16.50': '天空在我们心里飘了一场雪',
+            '24.43': '而你就静静地待在我身边',
+            '31.96': '深夜不想睡',
+            '33.51': '只想听着你给我的音乐',
+            '38.51': '那声音 让人好思念',
+            '47.44': '沉寂已久的心情掀起了雀跃',
+            '55.21': '是你温柔 解锁了我的心结',
+            '62.49': '那些挥散不去的过往',
+            '66.19': '全都视而不见',
+            '69.71': '只因为 对你的思念',
+            '77.48': '多想留在你的身边',
+            '82.11': '让爱渗透了 整个世界',
+            '85.95': '为你愿意 穿越所有的时间',
+            '92.80': '只想留在你的身边',
+            '97.55': '不害怕路途多么遥远',
+            '101.48': '为你甘之如饴 不管南北东西',
+            '120.00': '沉寂已久的心情掀起了雀跃',
+            '127.68': '是你温柔 解锁了我的心结',
+            '135.39': '那些挥散不去的过往',
+            '138.69': '全都视而不见',
+            '142.13': '只因为 对你的思念',
+            '149.90': '多想留在你的身边',
+            '155.55': '让爱渗透了 整个世界',
+            '158.33': '为你愿意 穿越所有的时间',
+            '165.43': '只想留在你的身边',
+            '170.07': '不害怕路途多么遥远',
+            '173.90': '为你甘之如饴 不管南北东西',
+            '180.88': '多想留在你的身边',
+            '185.48': '让爱渗透了 整个世界',
+            '189.37': '为你愿意 穿越所有的时间',
+            '196.40': '只想留在你的身边',
+            '200.96': '不害怕路途多么遥远',
+            '204.84': '为你甘之如饴 不管南北东西',
         }
         const third = {
-            title: '让一切随风',
-            singer: '陈慧娴',
-            album: 'By Heart',
-            '29.295': '风中风中 心里冷风',
-            '33.116': '吹失了梦',
-            '36.426': '事未过去 就已失踪',
-            '40.349': '此刻有种种心痛',
-            '43.726': '心中心中 一切似空',
-            '47.253': '天黑天光都似梦',
-            '50.910': '迷迷惘惘 聚满心中',
-            '54.993': '追踪一片冷的风',
-            '57.976': '各种空虚 冷冷冷',
-            '62.249': '吹起吹起风里梦',
-            '65.495': '过去的心 火般灼热',
-            '69.524': '今天已变了冰冻',
-            '72.264': '记忆中 突然又痛',
-            '76.731': '只因空虚再作弄',
-            '79.876': '你似北风 吹走我梦',
-            '84.080': '就让一切随风',
-            '101.892': '风中风中 心里冷风',
-            '105.835': '吹失了梦',
-            '109.038': '事未过去 就已失踪',
-            '113.195': '此刻有种种心痛',
-            '116.301': '心中心中 一切似空',
-            '120.476': '天黑天光都似梦',
-            '123.586': '迷迷惘惘 聚满心中',
-            '127.669': '追踪一片冷的风',
-            '130.504': '各种空虚 冷冷冷',
-            '134.984': '吹起吹起风里梦',
-            '138.125': '过去的心 火般灼热',
-            '142.259': '今天已变了冰冻',
-            '144.980': '记忆中 突然又痛',
-            '149.494': '只因空虚再作弄',
-            '152.662': '你似北风 吹走我梦',
-            '157.247': '就让一切随风',
-            '188.607': '各种空虚 冷冷冷',
-            '193.189': '吹起吹起风里梦',
-            '196.233': '过去的心 火般灼热',
-            '200.408': '今天已变了冰冻',
-            '203.276': '记忆中 突然又痛',
-            '207.708': '只因空虚再作弄',
-            '210.923': '你似北风 吹走我梦',
-            '215.488': '就让一切随风'
+            title: '等你下课',
+            singer: '周杰伦',
+            album: '等你下课',
+            '14.89': 'Jay：你住的 巷子里 我租了一间公寓',
+            '21.88': '为了想与你不期而遇',
+            '27.51': '高中三年 我为什么 为什么不好好读书',
+            '34.75': '没考上跟你一样的大学',
+            '39.61': '我找了份工作 离你宿舍很近',
+            '45.90': '当我开始学会做蛋饼 才发现你 不吃早餐',
+            '54.50': '喔 你又擦肩而过',
+            '58.94': '你耳机听什么 能不能告诉我',
+            '66.99': '合：躺在你学校的操场看星空',
+            '73.26': '教室里的灯还亮着你没走',
+            '80.05': '记得 我写给你的情书',
+            '86.24': '都什么年代了',
+            '89.50': '到现在我还在写着',
+            '93.18': '总有一天总有一年会发现',
+            '99.18': '有人默默的陪在你的身边',
+            '106.16': '也许 我不该在你的世界',
+            '112.45': '当你收到情书',
+            '115.67': '也代表我已经走远',
+            '145.63': 'Gary：学校旁 的广场 我在这等钟声响',
+            '151.56': '等你下课一起走好吗',
+            '156.13': 'J：弹着琴 唱你爱的歌 暗恋一点都不痛苦',
+            '163.28': '（G：一点都不痛苦）',
+            '164.46': 'J：痛苦的是你',
+            '165.98': '合：根本没看我',
+            '169.09': 'J：我唱这么走心 却走不进你心里',
+            '171.55': '（G：这么走心 进你心里）',
+            '176.87': 'J：在人来人往',
+            '177.08': '合：找寻着你 守护着你 不求结局',
+            '184.23': 'G：喔 你又擦肩而过（J：喔 而过）',
+            '189.38': 'J：我唱告白气球 终于你回了头',
+            '196.88': '合：躺在你学校的操场看星空',
+            '203.01': '教室里的灯还亮着你没走',
+            '209.74': '记得 我写给你的情书',
+            '215.02': '都什么年代了',
+            '218.26': '到现在我还在写着',
+            '222.96': '总有一天总有一年会发现',
+            '228.95': '有人默默的陪在你的身边',
+            '235.73': '也许 我不该在你的世界',
+            '243.21': '当你收到情书',
+            '246.40': '也代表我已经走远',
         }
         const lyrics = document.getElementById('lyrics');
         const audio = document.getElementsByTagName('audio')[0];
@@ -274,18 +318,21 @@
         const diskImg = document.getElementById('disk').getElementsByTagName('img')[0];
 
         audio.addEventListener('pause', () => {
+            disk.classList.add('diskAction');
             clearInterval(t);
         })
 
         audio.addEventListener('play', () => {
+            disk.classList.add('diskAction');
             t = setInterval(time, 1000);
         })
+
 
         function time() {
             disk.style.transform = 'rotate(' + 90 * flag + 'deg)';
             flag++;
             for (let i = 3; i < joker.length; i++) {
-                if (audio.currentTime < joker[i + 1] && audio.currentTime > joker[i]) {
+                if (audio.currentTime < joker[i + 1] && audio.currentTime > joker[i] || joker[joker.length] == undefined && audio.currentTime > joker[i]) {
                     for (let j = 3; j < joker.length; j++) {
                         ps[j].classList.remove("jj");
                     }
@@ -300,20 +347,21 @@
 
         for (let i = 0; i < lis.length; i++) {
             lis[i].addEventListener('click', function() {
+                disk.classList.remove('diskAction');
                 disk.style.transform = 'rotate(0deg)';
                 clearInterval(t);
                 flag = 1;
                 if (this.id === 'fir') {
-                    diskImg.src = "./public/cover/EyeoftheTiger.jpg";
-                    audio.src = './public/mp3/EyeoftheTiger.mp3'
+                    diskImg.src = "./public/cover/uchiagehanabi.jpg";
+                    audio.src = './public/mp3/uchiagehanabi.mp3'
                     song = first;
                 } else if (this.id === 'sec') {
-                    diskImg.src = "./public/cover/春江花月夜.jpg";
-                    audio.src = './public/mp3/春江花月夜.mp3'
+                    diskImg.src = "./public/cover/Palpitating.jpg";
+                    audio.src = './public/mp3/Palpitating.mp3'
                     song = second;
                 } else {
-                    diskImg.src = "./public/cover/让一切随风.jpg";
-                    audio.src = './public/mp3/让一切随风.mp3'
+                    diskImg.src = "./public/cover/waitForYouToFinishClass.jpg";
+                    audio.src = './public/mp3/waitForYouToFinishClass.mp3'
                     song = third;
                 }
                 let test = '';
@@ -332,6 +380,7 @@
                 for (let i = 3; i < joker.length; i++) {
                     joker[i] = parseInt(joker[i]);
                 }
+
             })
         }
     </script>
