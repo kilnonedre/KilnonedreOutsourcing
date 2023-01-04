@@ -1,0 +1,208 @@
+* {
+    padding: 0;
+    margin: 0;
+    cursor: default;
+    user-select: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-size: 16px;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header {
+    @include flex;
+    justify-content: flex-start;
+    height: 60px;
+    background-color: aliceblue;
+    box-shadow: 0 2px 4px 0 gray;
+}
+
+.nav {
+    @include flex;
+    justify-content: flex-start;
+    li {
+        margin: 0 1.5rem;
+        padding: 0.5rem 1.5rem;
+        transition: 0.2s;
+        border-radius: 0.5rem;
+        &:nth-child(n + 2):hover {
+            background-color: gray;
+            color: white;
+        }
+    }
+}
+
+main {
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+.carousel {
+    width: 400%;
+    height: 100%;
+    @include flex;
+    >div {
+        width: 100%;
+        height: 100%;
+        padding-top: 2rem;
+        box-sizing: border-box;
+    }
+}
+
+.mainBoxFir {
+    position: relative;
+    background-color: #191f2f;
+    >div {
+        position: absolute;
+        border-radius: 0.5rem;
+        bottom: 5rem;
+        right: 5rem;
+        width: 35rem;
+        height: 15rem;
+        background-color: rgba(255, 255, 255, 0.7);
+        h1,
+        h2 {
+            text-align: center;
+        }
+        h1 {
+            margin: 3rem 0;
+        }
+    }
+}
+
+.carousel>div:nth-child(1) {
+    background-image: url(../image/happiness.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.mainBoxSec {
+    position: relative;
+    background-color: #0d3282;
+    color: white;
+    transition: 0.2s;
+    &__main {
+        position: absolute;
+        right: 0;
+        bottom: 0.1rem;
+        height: 80%;
+        width: 60%;
+        border-radius: 1rem;
+        border: 0.1rem solid white;
+        overflow: hidden;
+        transition: 0.2s;
+        >div {
+            width: 200%;
+            height: 100%;
+            @include flex;
+            transition: 0.2s;
+            >div {
+                width: 50%;
+                height: 100%;
+            }
+        }
+    }
+    &__text {
+        position: absolute;
+        color: black;
+        font-size: 1.2rem;
+        left: 10%;
+        bottom: 15%;
+        height: 50%;
+        width: 20%;
+        border-radius: 1rem;
+        overflow: hidden;
+        background-color: rgb(255, 255, 255);
+        >div {
+            width: 200%;
+            height: 100%;
+            @include flex;
+            transition: 0.2s;
+            >div {
+                padding: 2rem;
+                width: 50%;
+            }
+            &:hover {
+                transform: translateX(-50%);
+            }
+        }
+    }
+    p,
+    h1 {
+        padding: 0 4rem;
+    }
+    p {
+        text-indent: 2em;
+    }
+}
+
+.mainBoxThi {
+    background-color: #ffdddd;
+    >div {
+        @include flex;
+        height: 80%;
+        >div {
+            width: 45%;
+            height: 80%;
+        }
+        >div:nth-child(1) {
+            width: 15%;
+            height: 60%;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            >p {
+                padding: 0;
+                font-size: 1.2rem;
+            }
+            >h3 {
+                text-align: center;
+                font-size: 1.3rem;
+                margin-top: 6rem;
+            }
+        }
+    }
+    p,
+    h1 {
+        padding: 0 4rem;
+    }
+    p {
+        text-indent: 2em;
+    }
+}
+
+#binzi {
+    background-color: #ffdddd;
+    border: 0.1rem solid white;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.mainBoxFou {
+    >div {
+        @include flex;
+        height: 70%;
+        >div {
+            width: 45%;
+            height: 80%;
+        }
+    }
+    p,
+    h1 {
+        padding: 0 4rem;
+    }
+    p {
+        text-indent: 2em;
+    }
+}

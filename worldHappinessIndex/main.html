@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/style/style.css">
+    <title>世界幸福指数</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <li>幸福</li>
+        </div>
+    </header>
+    <main>
+        <div class="carousel">
+            <div class="mainBoxFir">
+                <div>
+                    <h1>test</h1>
+                    <h2>test</h2>
+                </div>
+            </div>
+            <div class="mainBoxSec">
+                <h1><i>2022年世界最幸福的十大国家</i></h1>
+                <p>我们再来看看全球前10大幸福国家还有谁？ 据《2022年世界幸福报告》显示， 1）进入全球前5大最幸福的国家还有：丹麦（第2，得分7.636）、冰岛（第3，得分7.557）、瑞士（第4，得分7.512）、荷兰（第5，得分7.415）； 2）进入全球前10大幸福的国家还有：卢森堡（第6，得分7.404）、瑞典（第7，得分7.384）、挪威（第8，得分7.365）、以色列（第9，得分7.364）、新西兰（第10，得分7.2）。</p>
+                <div class="mainBoxSec__text">
+                    <div>
+                        <div class="mainBoxSec__maine">据《2022年世界幸福报告》显示，2022年，全球最幸福的国家是芬兰。 值得一提的是，这也是该国连续第5年位居全球最幸福国家的榜首。</div>
+                        <div class="mainBoxSec__happinesse">据《2022年世界幸福报告》显示，前10大幸福国家主要都是欧洲（更多的是北欧国家）</div>
+                    </div>
+                </div>
+                <div class="mainBoxSec__main">
+                    <div>
+                        <div id="main"></div>
+                        <div id="happiness"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mainBoxThi">
+                <h1><i>为何与中国差距如此之大</i></h1>
+                <p>荷兰是世界有名的低地国家，国土面积为4.15万平方公里，比我国重庆还要小二分之一。其中一半的国土海拔不到一米，四分之一的国土在海平面以下。2019年荷兰人口达1750万，其中西部发达地区人口密度每平方公里在1000人以上。</p>
+                <p>作为一个历史悠久的海运大国，2019年荷兰贸易总额高达1.35万亿美元，贸易顺差720亿美元，其贸易总额比其GDP还要高出一半。在欧洲地区仅次于德国，放到世界上能列入前五，仅次于美、中、德、日。同年荷兰的GDP总量高达9000亿美元，排名世界前20。如果把它放到中国，也只有广东、江苏两省能一较长短。但是，江苏、广东的面积可比荷兰大多，由此可见荷兰经济的雄厚与发达！</p>
+                <div>
+                    <div>
+                        <h3>荷兰幸福指数影响因素</h3>
+                        <p>如图所示，社会支持度、人均 GDP 、健康预期寿命、慷慨程度是影响荷兰幸福指数的最主要影响因素。三者相加大约占据了2/3的投票数</p>
+                    </div>
+                    <div id="binzi"></div>
+                </div>
+            </div>
+            <div class="mainBoxFou">
+                <h1><i>中国还有哪些可以改进之处</i></h1>
+                <p>"世界幸福指数报告"纯粹是主观的。</p>
+                <p>过去几十年，我们总是用经济来衡量一个国家的繁荣、成功，比如GDP，但是，这并不代表着这个国家的人"感觉"幸福。</p>
+                <p>以美国为例。自从1960年代以来，收入提高了，但是幸福感并没有。最近几年，GDP在增长，但是人们的幸福感却在下降。</p>
+                <div>
+                    <div id="jjj"></div>
+                    <div id="main1"></div>
+                </div>
+                <p>根据收集到的数据不难看出，当前我国人民虽然拥有较高的GDP，但随之而来的巨大压力依旧压得他们喘不过气。</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="./public/javascript/echarts.js"></script>
+    <script src="./public/javascript/jquery.js"></script>
+
+
+    <script>
+        const headerDivStrings = ['首页', '排名', '分析', '改进'];
+        const mainBoxSec = document.getElementsByClassName('mainBoxSec')[0];
+        const headerDiv = document.getElementsByTagName('header')[0].getElementsByTagName('div')[0];
+        const headerLis = document.getElementsByTagName('header')[0].getElementsByTagName('li');
+        const carousel = document.getElementsByClassName('carousel')[0];
+        const mainBoxSecText = document.getElementsByClassName('mainBoxSec__text')[0];
+        const mainBoxSecTextDiv = document.getElementsByClassName('mainBoxSec__text')[0].getElementsByTagName('div')[0];
+        const mainBoxSecMain = document.getElementsByClassName('mainBoxSec__main')[0];
+        const mainBoxSecMainDiv = document.getElementsByClassName('mainBoxSec__main')[0].getElementsByTagName('div')[0];
+        mainBoxSecText.addEventListener('mouseover', () => {
+            mainBoxSecTextDiv.style.transform = "translateX(-50%)";
+            mainBoxSecMainDiv.style.transform = "translateX(-50%)";
+            mainBoxSec.style.backgroundColor = "#f8cac2";
+            mainBoxSec.style.color = "black";
+        })
+        mainBoxSecText.addEventListener('mouseleave', () => {
+            mainBoxSecTextDiv.style.transform = "translateX(0)";
+            mainBoxSecMainDiv.style.transform = "translateX(0)";
+            mainBoxSec.style.backgroundColor = "#0d3282";
+            mainBoxSec.style.color = "white";
+        })
+        let headerDivString = headerDiv.innerHTML;
+        headerDivStrings.forEach((data) => {
+            headerDivString += '<li>' + data + '</li>'
+        })
+        headerDiv.innerHTML = headerDivString;
+
+        for (let i = 1; i < headerLis.length; i++) {
+            headerLis[i].addEventListener('click', function() {
+                carousel.style.transform = "translateX(-" + headerDivStrings.indexOf(this.innerText) * 25 + "%)"
+            })
+        }
+    </script>
+    <script src="./public/javascript/index.js"></script>
+    <script src="./public/javascript/happiness.js"></script>
+    <script src="./public/javascript/ttt.js"></script>
+    <script src="./public/javascript/ly.js"></script>
+    <script src="./public/javascript/jjj.js"></script>
+
+
+
+
+    <!-- <script src="./public/javascript/main.js"></script> -->
+
+</body>
+
+</html>
