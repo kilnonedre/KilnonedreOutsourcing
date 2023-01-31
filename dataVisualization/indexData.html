@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ECharts Test China Data</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #main {
+        width: 600px;
+        height: 450px;
+      }
+
+      #food {
+        width: 32vw;
+        height: 20vw;
+        margin-bottom: 2vw;
+      }
+
+      #cloth {
+        width: 32vw;
+        height: 20vw;
+      }
+
+      #house {
+        width: 32vw;
+        height: 20vw;
+        margin-bottom: 2vw;
+      }
+
+      #live {
+        width: 32vw;
+        height: 20vw;
+      }
+    </style>
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/china.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div>
+      <div id="food"></div>
+      <div id="cloth"></div>
+    </div>
+    <div id="main"></div>
+    <div>
+      <div id="house"></div>
+      <div id="live"></div>
+    </div>
+    <script type="text/javascript">
+      var dataList = [
+        { name: '南海诸岛', value: 0 },
+        { name: '北京', value: 3665.4288 },
+        { name: '天津', value: 3783.6977 },
+        { name: '上海', value: 5090.025 },
+        { name: '重庆', value: null },
+        { name: '河北', value: null },
+        { name: '河南', value: null },
+        { name: '云南', value: null },
+        { name: '辽宁', value: 3398.273 },
+        { name: '黑龙江', value: 2714.9072 },
+        { name: '湖南', value: null },
+        { name: '安徽', value: 3170.1969 },
+        { name: '山东', value: null },
+        { name: '新疆', value: null },
+        { name: '江苏', value: 3563.5089 },
+        { name: '浙江', value: 4537.1655 },
+        { name: '江西', value: 2943.5641 },
+        { name: '湖北', value: null },
+        { name: '广西', value: null },
+        { name: '甘肃', value: null },
+        { name: '山西', value: 2834.1894 },
+        { name: '内蒙古', value: 3086.6886 },
+        { name: '陕西', value: null },
+        { name: '吉林', value: 2969.466 },
+        { name: '福建', value: 3119.6944 },
+        { name: '贵州', value: null },
+        { name: '广东', value: null },
+        { name: '青海', value: null },
+        { name: '西藏', value: null },
+        { name: '四川', value: null },
+        { name: '宁夏', value: null },
+        { name: '海南', value: null },
+        { name: '台湾', value: null },
+        { name: '香港', value: null },
+        { name: '澳门', value: null },
+      ]
+
+      var option = {
+        title: {
+          text: '人均教育文化娱乐消费支出（元）',
+          top: '2%',
+          left: 'center',
+        },
+        tooltip: {
+          formatter: function (params, ticket, callback) {
+            return (
+              params.seriesName + '<br />' + params.name + '：' + params.value
+            )
+          }, //数据格式化
+        },
+        visualMap: {
+          min: 1200,
+          max: 5100,
+          left: 'left',
+          top: 'bottom',
+          text: ['高', '低'], //取值范围的文字
+          inRange: {
+            color: ['#5bc0f8', '#0181c9'], //取值范围的颜色
+          },
+          show: true, //图注
+        },
+        geo: {
+          map: 'china',
+          roam: false, //不开启缩放和平移
+          zoom: 1.23, //视角缩放比例
+          label: {
+            normal: {
+              show: true,
+              fontSize: '10',
+              color: 'rgba(0,0,0,0.7)',
+            },
+          },
+          itemStyle: {
+            normal: {
+              borderColor: 'rgba(0, 0, 0, 0.2)',
+            },
+            emphasis: {
+              areaColor: '#F3B329', //鼠标选择区域颜色
+              shadowOffsetX: 0,
+              shadowOffsetY: 0,
+              shadowBlur: 20,
+              borderWidth: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)',
+            },
+          },
+        },
+        series: [
+          {
+            name: '消费',
+            type: 'map',
+            geoIndex: 0,
+            data: dataList,
+          },
+        ],
+      }
+
+      // 基于准备好的dom，初始化echarts实例
+      var main = echarts.init(document.getElementById('main'))
+      // 使用刚指定的配置项和数据显示图表。
+      main.setOption(option)
+      // 点击事件
+      main.on('click', function (params) {
+        alert(params.name + ':' + params.seriesName + ':' + params.value)
+      })
+
+      var food = document.getElementById('food')
+      var food = echarts.init(food)
+      var option
+
+      option = {
+        title: {
+          text: '人均食品烟酒消费支出（元）',
+          top: '90%',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            crossStyle: {
+              color: '#999',
+            },
+          },
+        },
+        toolbox: {
+          feature: {
+            dataView: { show: true, readOnly: false },
+            magicType: { show: true, type: ['line', 'bar'] },
+            restore: { show: true },
+            saveAsImage: { show: true },
+          },
+        },
+        legend: {
+          data: ['人均GDP', '幸福指数'],
+        },
+        xAxis: [
+          {
+            type: 'category',
+            data: [
+              '北京市',
+              '天津市',
+              '河北省',
+              '山西省',
+              '内蒙古自治区',
+              '辽宁省',
+              '吉林省',
+              '黑龙江省',
+              '上海市',
+              '江苏省',
+              '浙江省',
+              '安徽省',
+              '福建省',
+              '江西省',
+            ],
+            axisPointer: {
+              type: 'shadow',
+            },
+          },
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            name: '支出',
+            min: 5000,
+            max: 15000,
+            interval: 2000,
+            axisLabel: {
+              formatter: '{value} 元',
+            },
+          },
+          {
+            type: 'value',
+            name: '',
+            min: 5000,
+            max: 15000,
+            interval: 2000,
+            axisLabel: {
+              formatter: '',
+            },
+          },
+        ],
+        series: [
+          {
+            name: 'GDP',
+            type: 'bar',
+            tooltip: {
+              valueFormatter: function (value) {
+                return value + ' 元'
+              },
+            },
+            data: [
+              9719.5959, 9708.4273, 6521.5967, 5528.5499, 7325.8606, 8183.9079,
+              6626.626, 7095.0924, 12877.5863, 9590.351, 11283.4073, 8468.5699,
+              10612.2012, 7722.6511,
+            ],
+          },
+          {
+            name: '',
+            type: 'line',
+            yAxisIndex: 1,
+            tooltip: {
+              valueFormatter: function (value) {
+                return value
+              },
+            },
+            data: [
+              9719.5959, 9708.4273, 6521.5967, 5528.5499, 7325.8606, 8183.9079,
+              6626.626, 7095.0924, 12877.5863, 9590.351, 11283.4073, 8468.5699,
+              10612.2012, 7722.6511,
+            ],
+          },
+        ],
+      }
+
+      option && food.setOption(option)
+      // 基于准备好的dom，初始化echarts实例
+      var cloth = echarts.init(
+        document.getElementById('cloth'),
+        'purple-passion'
+      )
+
+      // 指定图表的配置项和数据
+      option = {
+        title: {
+          text: '人均衣着消费支出（元）',
+          top: '2%',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            selectedMode: 'single',
+            selectedOffset: 20,
+            clockwise: true,
+            startAngle: 90,
+            legendHoverlink: true,
+            roseType: true,
+            radius: ['30%', '70%'],
+            data: [
+              { value: 2235.4923, name: '北京市' },
+              { value: 2037.3934, name: '天津市' },
+              { value: 1695.0052, name: '河北省' },
+              { value: 1665.7728, name: '山西省' },
+              { value: 2153.1585, name: '内蒙古自治区' },
+              { value: 1783.358, name: '吉林省' },
+              { value: 1780.2862, name: '黑龙江省' },
+              { value: 2153.4434, name: '上海市' },
+              { value: 2075.0747, name: '江苏省' },
+              { value: 2437.2194, name: '浙江省' },
+              { value: 1794.904, name: '安徽省' },
+              { value: 1740.9461, name: '福建省' },
+              { value: 1440.2359, name: '江西省' },
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+          },
+        ],
+      }
+
+      // 使用刚指定的配置项和数据显示图表。
+      cloth.setOption(option)
+      cloth.resize()
+      var house = document.getElementById('house')
+      var house = echarts.init(house)
+      var option
+      const gaugeData = [
+        {
+          value: 92,
+          name: '北京市',
+          title: {
+            offsetCenter: ['-40%', '80%'],
+          },
+          detail: {
+            offsetCenter: ['-40%', '95%'],
+          },
+        },
+        {
+          value: 70,
+          name: '天津市',
+          title: {
+            offsetCenter: ['0%', '80%'],
+          },
+          detail: {
+            offsetCenter: ['0%', '95%'],
+          },
+        },
+        {
+          value: 49,
+          name: '河北省',
+          title: {
+            offsetCenter: ['40%', '80%'],
+          },
+          detail: {
+            offsetCenter: ['40%', '95%'],
+          },
+        },
+      ]
+      option = {
+        title: {
+          text: ' 居住消费支出（元）',
+          top: '2%',
+          left: 'center',
+        },
+
+        series: [
+          {
+            type: 'gauge',
+            anchor: {
+              show: true,
+              showAbove: true,
+              size: 18,
+              itemStyle: {
+                color: '#FAC858',
+              },
+            },
+            pointer: {
+              icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',
+              width: 4,
+              length: '80%',
+              offsetCenter: [0, '8%'],
+            },
+            progress: {
+              show: true,
+              overlap: true,
+              roundCap: true,
+            },
+            axisLine: {
+              roundCap: true,
+            },
+            data: gaugeData,
+            title: {
+              fontSize: 14,
+            },
+            detail: {
+              width: 40,
+              height: 14,
+              fontSize: 14,
+              color: '#fff',
+              backgroundColor: 'inherit',
+              borderRadius: 3,
+              formatter: '{value}%',
+            },
+          },
+        ],
+      }
+
+      option && house.setOption(option)
+
+      var live = document.getElementById('live')
+      var live = echarts.init(live)
+      var option
+
+      option = {
+        title: {
+          text: '人均生活用品及服务消费支出（元）',
+          top: '2%',
+          left: 'center',
+        },
+        series: {
+          type: 'sankey',
+          layout: 'none',
+          emphasis: {
+            focus: 'adjacency',
+          },
+          data: [
+            {
+              name: '东部地区',
+            },
+            {
+              name: '东三省',
+            },
+            {
+              name: '环渤海',
+            },
+            {
+              name: '长三角',
+            },
+            {
+              name: '北京市',
+            },
+            {
+              name: '天津市',
+            },
+            {
+              name: '河北省',
+            },
+            {
+              name: '山西省',
+            },
+            {
+              name: '内蒙古自治区',
+            },
+            {
+              name: '辽宁省',
+            },
+            {
+              name: '吉林省',
+            },
+            {
+              name: '华南',
+            },
+            {
+              name: '黑龙江省',
+            },
+            {
+              name: '上海市',
+            },
+            {
+              name: '江苏省',
+            },
+            {
+              name: '浙江省',
+            },
+            {
+              name: '安徽省',
+            },
+            {
+              name: '福建省',
+            },
+            {
+              name: '江西省',
+            },
+          ],
+          links: [
+            {
+              source: '东三省',
+              target: '黑龙江省',
+              value: 1293.0778,
+            },
+            {
+              source: '东三省',
+              target: '吉林省',
+              value: 1377.3867,
+            },
+            {
+              source: '东三省',
+              target: '辽宁省',
+              value: 1638.3362,
+            },
+            {
+              source: '东部地区',
+              target: '东三省',
+              value: 1293.0778 + 1377.3867 + 1638.3362,
+            },
+            {
+              source: '环渤海',
+              target: '北京市',
+              value: 2744.5285,
+            },
+            {
+              source: '环渤海',
+              target: '天津市',
+              value: 2105.3538,
+            },
+            {
+              source: '环渤海',
+              target: '内蒙古自治区',
+              value: 1547.0832,
+            },
+            {
+              source: '环渤海',
+              target: '河北省',
+              value: 1483.3578,
+            },
+            {
+              source: '东部地区',
+              target: '环渤海',
+              value: 1483.3578 + 1547.0832 + 2105.3538 + 2744.5285,
+            },
+            {
+              source: '长三角',
+              target: '上海市',
+              value: 2328.1725,
+            },
+            {
+              source: '长三角',
+              target: '江苏省',
+              value: 2176.4034,
+            },
+            {
+              source: '长三角',
+              target: '浙江省',
+              value: 2417.9029,
+            },
+            {
+              source: '东部地区',
+              target: '长三角',
+              value: 2417.9029 + 2176.4034 + 2328.1725,
+            },
+            {
+              source: '东部地区',
+              target: '安徽省',
+              value: 1671.1764,
+            },
+            {
+              source: '东部地区',
+              target: '江西省',
+              value: 1445.7911,
+            },
+            {
+              source: '东部地区',
+              target: '山西省',
+              value: 1390.9486,
+            },
+            {
+              source: '华南',
+              target: '福建省',
+              value: 1793.6083,
+            },
+            {
+              source: '东部地区',
+              target: '华南',
+              value: 1793.6083,
+            },
+          ],
+        },
+      }
+
+      option && live.setOption(option)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,536 @@
+/* header */
+/* 顶部 */
+@media screen and (min-width: 1181px){
+    #header .header-nav .header-nav-logo {
+        width: 100px;
+        height: 100%;
+        float: left;
+        position: relative;
+        cursor: pointer;
+      }
+      /* 导航栏logo图片 */
+      #header .header-nav .header-nav-logo img {
+        width: 280px;
+        height: 110px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+}
+#header {
+    background: #ffffff;
+    transition: all ease 0.6s;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  #header .header-top {
+    height: 50px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    background: #262627;
+  }
+  .pull-left {
+    float: none !important;
+  }
+  /* 顶部的图标文字 */
+  #header .header-top span {
+    margin: 0 8px;
+    cursor: pointer;
+  }
+  /* 导航栏 */
+  #header .header-nav {
+    height: 110px;
+  }
+  /* 导航栏logo */
+
+  /* 导航栏 导航容器 */
+  #header .header-nav-fixed .header-nav-wrapper {
+    line-height: 50px;
+  }
+  #header .header-nav .header-nav-wrapper {
+    line-height: 110px;
+    float: right;
+    margin: 0;
+    max-width: 800px;
+  }
+  /* 导航栏 每个导航 */
+  #header .header-nav .header-nav-wrapper > li {
+    float: left;
+    margin: 0 15px;
+    position: relative;
+  }
+  /* 导航栏 每个导航下面的 a 链接 */
+  #header .header-nav .header-nav-wrapper > li > a {
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 0;
+    position: relative;
+  }
+  /* 导航栏 每个导航下面的 a 链接的下划线 */
+  #header .header-nav .header-nav-wrapper > li > a > i {
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 5px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    background-color: #0368b7;
+  }
+  /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
+  #header .header-nav .header-nav-wrapper > li > a > span {
+    font-size: 12px;
+    transition: transform ease 0.5s;
+  }
+  /* 导航栏 每个导航下面的 a 链接 鼠标滑上去的样式 */
+  #header .header-nav .header-nav-wrapper > li > a:hover {
+    color: #0368b7;
+    text-decoration: none;
+  }
+  /* 导航栏 每个导航下面的 a 链接 鼠标滑上去下划线的样式 */
+  #header .header-nav .header-nav-wrapper > li > a:hover .underline {
+    opacity: 1;
+    width: 100%;
+    left: 0;
+  }
+  /* 导航栏 每个导航下面的 a 链接 鼠标滑上去三角标的样式 */
+  #header .header-nav .header-nav-wrapper > li > a:hover span {
+    transform: rotate(180deg);
+  }
+  /* 导航栏 每个导航下面的 a 链接 鼠标点击后的样式 */
+  #header .header-nav .header-nav-wrapper > a.active {
+    color: #0368b7;
+    text-decoration: none;
+    border-bottom: 2px solid #0368b7;
+  }
+  /* 导航栏 每个导航下面的二级导航容器 */
+  #header .header-nav .header-nav-wrapper > li > dl {
+    display: none;
+    position: absolute;
+    width: 135px;
+    top: 80%;
+    left: 0;
+    z-index: 999999;
+    box-shadow: 0 0 3px 1px #ccc;
+    background: #fff;
+  }
+  /* 导航栏 每个导航下面的二级导航容器的每个导航 */
+  #header .header-nav .header-nav-wrapper > li > dl > dt {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  #header .header-nav .header-nav-wrapper > li > dl > dt > a{
+    font-size: 18px;
+  }
+  /* 导航栏 每个导航下面的二级导航容器的每个导航 当鼠标滑上时的样式*/
+  #header .header-nav .header-nav-wrapper > li > dl > dt > a:hover {
+    text-decoration: none;
+    color:#0368b7;
+  }
+  /* 导航栏 滑上一级导航显示二级导航 */
+  #header .header-nav .header-nav-wrapper > li:hover dl {
+    display: block;
+  }
+  #header .header-nav .header-nav-wrapper > li > dl > dt:hover {
+    cursor: pointer;
+    background: #ccc;
+  }
+
+  /* 手机端 */
+  @media screen and (max-width: 767px) {
+    #header .header-nav-m {
+      position: relative;
+    }
+    /* 导航栏logo容器 */
+    #header .header-nav-m .header-nav-m-logo {
+      height: 80px;
+      position: relative;
+    }
+    /* 导航栏logo图片 */
+    #header .header-nav-m .header-nav-m-logo img {
+      width: 220px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    /* 导航栏  菜单容器 */
+    #header .header-nav-m .header-nav-m-menu {
+      color: #fff;
+      height: 50px;
+      font-size: 20px;
+      line-height: 50px;
+      background: #262627;
+      position: relative;
+    }
+    /* 导航栏 菜单图标 */
+    #header .header-nav-m .header-nav-m-menu-wrapper {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      margin-top: -20px;
+      width: 50px;
+      height: 40px;
+      color: #fff;
+      z-index: 999999;
+      font-size: 12px;
+    }
+    /* 导航栏 */
+    #header .header-nav-m .header-nav-m-wrapper {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background: #262627;
+      z-index: 9999999;
+    }
+    /* 导航栏 每个导航 */
+    #header .header-nav-m .header-nav-m-wrapper > li {
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #ccc;
+    }
+    /* 导航栏 每个导航下面的 a 链接 */
+    #header .header-nav-m .header-nav-m-wrapper > li > a {
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 0;
+      position: relative;
+    }
+    /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
+    #header .header-nav .header-nav-wrapper > li > a > span {
+      font-size: 10px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1180px) {
+    #header .header-nav .header-nav-logo {
+        width: 100px;
+        height: 100%;
+        float: left;
+        position: relative;
+        cursor: pointer;
+      }
+      /* 导航栏logo图片 */
+      #header .header-nav .header-nav-logo img {
+        width: 180px;
+        height: 90px;
+        position: absolute;
+        top: 0;
+        left: -55px;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: -12;
+      }
+}
+
+/* container */
+#HomePage {
+  width: 100%;
+}
+/* 轮播图 */
+#swiper {
+  height: 600px;
+}
+#swiper .banner-swiper {
+  width: 100%;
+  height: 100%;
+}
+#swiper .banner-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+#swiper .banner-swiper .swiper-slide {
+  position: relative;
+}
+#swiper .banner-swiper .swiper-slide-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999999;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  line-height: 80px;
+}
+#swiper .banner-swiper .swiper-slide-title > h1 {
+  font-size: 50px;
+  margin-top: 12%;
+}
+#swiper .banner-swiper .swiper-slide-title > p {
+  font-size: 20px;
+  margin-top: 1%;
+  font-weight: 700;
+}
+/* 视频/表格 */
+#bigData {
+  padding: 100px;
+  transition: all ease 0.6s;
+  box-sizing: border-box;
+}
+#bigData .bigData-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+/* banner */
+#contactUs {
+  color: #fff;
+  height: 300px;
+  background: url("../img/a.jpg") 0 0 no-repeat;
+  background-size: 100% 100%;
+  transition: all ease 0.6s;
+}
+#contactUs .contactUs-container {
+  padding-top: 50px;
+}
+
+/* 客户评价 */
+#customer {
+  padding: 50px 0;
+  box-sizing: border-box;
+  background: #efefef;
+  transition: all ease 0.6s;
+}
+#customer .customer-title {
+  font-size: 30px;
+  color: rgb(102, 102, 102);
+  margin: 0 0 10px;
+}
+#customer .customer-block {
+  background: #fff;
+  padding: 20px;
+}
+#customer .customer-logo img {
+  width: 100%;
+  height: 452px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+/* 为什么选择我们 */
+#whyChooseUs {
+  padding: 100px;
+}
+#whyChooseUs .whyChooseUs-title {
+  margin-bottom: 50px;
+}
+#whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
+  font-size: 25px;
+  font-weight: 500;
+}
+#whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
+  font-size: 14px;
+}
+#whyChooseUs .server-block {
+  padding: 50px 20px;
+  border: 1px solid #ccc;
+  border-bottom: 5px solid #ccc;
+}
+#whyChooseUs .server-block img {
+  width: 48px;
+  height: 48px;
+}
+#whyChooseUs .server-block > p {
+  font-size: 20px;
+  margin: 30px 0;
+}
+#whyChooseUs .server-block > div {
+  color: #ccc;
+}
+/* 媒体查询（手机） */
+@media screen and (max-width: 768px) {
+  #swiper {
+    height: 200px;
+  }
+  #bigData {
+    padding: 30px;
+  }
+  #bigData .bigData-title {
+    font-size: 20px;
+  }
+  #contactUs {
+    height: 70px;
+    transition: all ease 0.6s;
+  }
+  #contactUs .contactUs-container {
+    padding-top: 0;
+  }
+  #customer {
+    padding: 50px 0;
+    box-sizing: border-box;
+    background: #fff;
+  }
+  #customer .customer-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  #customer .customer-logo img {
+    width: 100%;
+    height: 320px;
+  }
+  #customer .customer-block {
+    padding: 30px;
+  }
+  #customer .customer-block > div {
+    padding: 30px 0;
+  }
+  #whyChooseUs {
+    padding: 20px 0;
+    transition: all ease 0.6s;
+  }
+  #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  #whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
+    font-size: 12px;
+  }
+  #whyChooseUs .server-block {
+    padding: 50px 0;
+    border: 1px solid #ccc;
+    border-bottom: 5px solid #ccc;
+  }
+  #whyChooseUs .server-block img {
+    width: 48px;
+    height: 48px;
+  }
+  #whyChooseUs .server-block > p {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+  #whyChooseUs .server-block > div {
+    color: #ccc;
+  }
+}
+
+/* 媒体查询（平板） */
+@media screen and (min-width: 768px) and (max-width: 996px) {
+  #swiper {
+    height: 400px;
+  }
+  #bigData {
+    padding: 60px;
+  }
+  #bigData .bigData-title {
+    font-size: 30px;
+  }
+  #contactUs {
+    height: 130px;
+  }
+  #contactUs .contactUs-container {
+    padding-top: 10px;
+  }
+  #customer .customer-title {
+    font-size: 24px;
+  }
+  #customer .customer-block {
+    padding: 10px;
+  }
+  #customer .customer-logo img {
+    width: 100%;
+    height: 240px;
+    border: 1px solid #ccc;
+  }
+  #whyChooseUs {
+    padding: 20px 0;
+  }
+}
+
+
+/* footer */
+@media screen and (max-width: 767px){
+  .address_tel_fax > * {
+    color: #fff;
+    font-size: 12px;
+    margin: 1px 0;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+.address_tel_fax > * {
+        color: #fff;
+        font-size: 20px;
+        white-space: nowrap;
+        margin: 10px 0;
+      }
+}
+#footer {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: #262627;
+    overflow: hidden;
+    text-align: center;
+  }
+  .logo {
+    width: 95px;
+    height: 45px;
+    margin: 50px auto 20px;
+  }
+  .title {
+    font-size: 25px;
+    margin: 10px 0;
+  }
+  .address_tel_fax {
+    color: #d3d3d3;
+    font-size: 14px;
+    margin: 1px 0;
+    cursor: pointer;
+  }
+  .email_wx {
+    color: #d3d3d3;
+    font-size: 14px;
+  }
+  .copy {
+    color: #d3d3d3;
+    font-size: 14px;
+    margin: 5px 0 10px;
+  }
+  @media screen and (max-width: 997px) {
+    .title {
+      font-size: 20px;
+    }
+    .address_tel_fax {
+      font-size: 12px;
+    }
+    .email_wx {
+      font-size: 12px;
+    }
+    .copy {
+      font-size: 12px;
+      margin: 30px 0 10px;
+    }
+  }
+  /* 返回顶部 */
+  #GoTop {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 20px;
+    bottom: 0px;
+    z-index: 99999999;
+    cursor: pointer;
+  }
+  #GoTop > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: rgb(8, 162, 233);
+    font-size: 30px;
+  }
+
+  /* 公司介绍 */

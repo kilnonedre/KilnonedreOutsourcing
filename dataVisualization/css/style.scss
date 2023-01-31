@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // background-color: #86e5ff;
+}
+
+#main {
+  width: 600px;
+  height: 450px;
+}
+
+#food {
+  // background-color: yellow;
+  width: 32vw;
+  height: 20vw;
+  margin-bottom: 2vw;
+}
+#cloth {
+  // background-color: green;
+  width: 32vw;
+  height: 20vw;
+}
+#house {
+  // background-color: blue;
+  width: 32vw;
+  height: 20vw;
+  margin-bottom: 2vw;
+}
+#live {
+  // background-color: orange;
+  width: 32vw;
+  height: 20vw;
+}

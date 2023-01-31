@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.min.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div class="dataVisualization">
+        <div class="dataHead">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="dataTitle">
+          <div></div>
+          <div>今日预约车次情况</div>
+          <div></div>
+        </div>
+        <div class="dataMain">
+          <div class="dataMain__left">
+            <div class="dataMain__left__show"></div>
+            <div>
+              <p>86%</p>
+              <p>交易完成比例</p>
+            </div>
+            <div>
+              <p>14%</p>
+              <p>剩余车辆</p>
+            </div>
+            <div></div>
+            <div><div></div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="dataMain__right">
+            <p>预约剩余车辆</p>
+            <div>
+              <img src="./imgs/carBackgroundImg.png" alt="" />
+              <p><span style="color: #f8b221">1,099</span><span>辆</span></p>
+            </div>
+            <p>今日预约总车辆</p>
+            <div>
+              <img src="./imgs/carBackgroundImg.png" alt="" />
+              <p><span style="color: #01f2c9">7,852</span><span>辆</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/echarts.js"></script>
+    <script>
+      var chartDom = document.getElementsByClassName('dataMain__left__show')[0]
+      var myChart = echarts.init(chartDom)
+      var option
+
+      option = {
+        tooltip: {
+          trigger: 'item',
+        },
+        color: ['#feb33d', '#00f5cb'],
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            radius: ['60%', '80%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center',
+            },
+            emphasis: {
+              label: {
+                show: false,
+                fontSize: 40,
+                fontWeight: 'bold',
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              { value: 1099, name: '剩余车辆' },
+              { value: 7852, name: '总车辆' },
+            ],
+          },
+        ],
+      }
+
+      option && myChart.setOption(option)
+    </script>
+  </body>
+</html>

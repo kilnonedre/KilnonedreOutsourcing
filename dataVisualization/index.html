@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ECharts Test China Data</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <!-- 引入刚刚下载的 china 文件 -->
+    <script type="text/javascript" src="js/china.js"></script>
+    <!-- 设置样式 -->
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div>
+      <div id="food"></div>
+      <div id="cloth"></div>
+    </div>
+    <div id="main"></div>
+    <div>
+      <div id="house"></div>
+      <div id="live"></div>
+    </div>
+    <script src="js/zhuzhuangtu.js"></script>
+    <script src="js/binzi.js"></script>
+    <script src="js/happiness.js"></script>
+    <script src="js/sangshen.js"></script>
+    <script type="text/javascript">
+      var dataList = [
+        { name: '南海诸岛', value: 0 },
+        { name: '北京', value: 3665.4288 },
+        { name: '天津', value: 3783.6977 },
+        { name: '上海', value: 5090.025 },
+        { name: '重庆', value: null },
+        { name: '河北', value: null },
+        { name: '河南', value: null },
+        { name: '云南', value: null },
+        { name: '辽宁', value: 3398.273 },
+        { name: '黑龙江', value: 2714.9072 },
+        { name: '湖南', value: null },
+        { name: '安徽', value: 3170.1969 },
+        { name: '山东', value: null },
+        { name: '新疆', value: null },
+        { name: '江苏', value: 3563.5089 },
+        { name: '浙江', value: 4537.1655 },
+        { name: '江西', value: 2943.5641 },
+        { name: '湖北', value: null },
+        { name: '广西', value: null },
+        { name: '甘肃', value: null },
+        { name: '山西', value: 2834.1894 },
+        { name: '内蒙古', value: 3086.6886 },
+        { name: '陕西', value: null },
+        { name: '吉林', value: 2969.466 },
+        { name: '福建', value: 3119.6944 },
+        { name: '贵州', value: null },
+        { name: '广东', value: null },
+        { name: '青海', value: null },
+        { name: '西藏', value: null },
+        { name: '四川', value: null },
+        { name: '宁夏', value: null },
+        { name: '海南', value: null },
+        { name: '台湾', value: null },
+        { name: '香港', value: null },
+        { name: '澳门', value: null },
+      ]
+
+      // 随机函数
+      function randomValue() {
+        return Math.round(Math.random() * 1000)
+      }
+
+      var option = {
+        title: {
+          text: '人均教育文化娱乐消费支出（元）',
+          top: '2%',
+          left: 'center',
+        },
+        tooltip: {
+          formatter: function (params, ticket, callback) {
+            return (
+              params.seriesName + '<br />' + params.name + '：' + params.value
+            )
+          }, //数据格式化
+        },
+        visualMap: {
+          min: 1200,
+          max: 5100,
+          left: 'left',
+          top: 'bottom',
+          text: ['高', '低'], //取值范围的文字
+          inRange: {
+            color: ['#5bc0f8', '#0181c9'], //取值范围的颜色
+          },
+          show: true, //图注
+        },
+        geo: {
+          map: 'china',
+          roam: false, //不开启缩放和平移
+          zoom: 1.23, //视角缩放比例
+          label: {
+            normal: {
+              show: true,
+              fontSize: '10',
+              color: 'rgba(0,0,0,0.7)',
+            },
+          },
+          itemStyle: {
+            normal: {
+              borderColor: 'rgba(0, 0, 0, 0.2)',
+            },
+            emphasis: {
+              areaColor: '#F3B329', //鼠标选择区域颜色
+              shadowOffsetX: 0,
+              shadowOffsetY: 0,
+              shadowBlur: 20,
+              borderWidth: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)',
+            },
+          },
+        },
+        series: [
+          {
+            name: '消费',
+            type: 'map',
+            geoIndex: 0,
+            data: dataList,
+          },
+        ],
+      }
+
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'))
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option)
+      // 点击事件
+      myChart.on('click', function (params) {
+        alert(params.name + ':' + params.seriesName + ':' + params.value)
+      })
+    </script>
+  </body>
+</html>
