@@ -2,26 +2,22 @@
   <div class="storyDetail" v-show="displayReady">
     <h2 style="margin-top: 20px">{{ storyDetail.story.title }}</h2>
     <p style="margin-top: 20px">
-      <span style="margin-right: 30px"
-        >点赞数：{{ storyDetail.story.like }}</span
-      ><span>投币数：{{ storyDetail.story.collection }}</span>
+      <span style="margin-right: 30px">点赞数：{{ storyDetail.story.like }}</span><span>投币数：{{
+        storyDetail.story.collection
+      }}</span>
     </p>
     <el-divider></el-divider>
-    <el-collapse accordion style="margin-bottom: 20px">
-      <el-collapse-item
-        :title="item.title"
-        v-for="(item, index) in storyDetail.story.fenzhi"
-        :key="index"
-      >
-        <div class="">
-          {{ item.content }}
-        </div>
-      </el-collapse-item>
-    </el-collapse>
+    <el-carousel height="150px" :loop="false" :autoplay='false'>
+      <el-carousel-item v-for="(item, index) in storyDetail.story.fenzhi" :key="index">
+        <h3 class="small">{{ item.title }}</h3>
+        <div style="text-align:left;text-indent: 2em;"><span style="text-align:left">{{
+          item.content
+        }}</span></div>
+
+      </el-carousel-item>
+    </el-carousel>
     <el-button @click="dialogFormVisible = true">续写故事</el-button>
-    <el-button @click="storyHeart" :disabled="storyDetail.story.like >= 1"
-      >关注</el-button
-    >
+    <el-button @click="storyHeart" :disabled="storyDetail.story.like >= 1">关注</el-button>
     <el-button @click="useCoin">投币</el-button>
     <el-button @click="returnBack">返回</el-button>
     <el-divider></el-divider>
@@ -30,24 +26,14 @@
       <el-card class="box-card" v-for="(item, index) in fenzhi" :key="index">
         <div slot="header" class="clearfix">
           <span>{{ item.title }}</span>
-          <el-button
-            @click="chooseIt(item)"
-            style="float: right; padding: 3px 0"
-            type="text"
-            >投票</el-button
-          >
+          <el-button @click="chooseIt(item)" style="float: right; padding: 3px 0" type="text">投票</el-button>
         </div>
         <div class="text item">{{ item.content }}</div>
       </el-card>
       <el-dialog title="续写" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="故事内容" :label-width="formLabelWidth">
-            <el-input
-              type="textarea"
-              :rows="4"
-              placeholder="请输入内容"
-              v-model="form.textarea"
-            >
+            <el-input type="textarea" :rows="4" placeholder="请输入内容" v-model="form.textarea">
             </el-input>
           </el-form-item>
         </el-form>
@@ -63,7 +49,7 @@
 <script>
 export default {
   props: ["storyDetail"],
-  data() {
+  data () {
     return {
       story: this.storyDetail.story,
       fenzhi: [
@@ -80,14 +66,14 @@ export default {
     };
   },
   methods: {
-    useCoin() {
+    useCoin () {
       this.$emit("useCoins", this.storyDetail.story);
     },
-    storyHeart() {
+    storyHeart () {
       if (this.storyDetail.story.like < 1)
         this.$emit("storyHearts", this.storyDetail.story);
     },
-    chooseIt(data) {
+    chooseIt (data) {
       const story = this.storyDetail.story;
       console.log(story);
       story.fenzhi[story.fenzhi.length] = {
@@ -98,10 +84,10 @@ export default {
       this.$emit("chooseIts", story);
       this.fenzhi = [];
     },
-    test() {
+    test () {
       console.log(this.storyDetail);
     },
-    fenzhiqueren() {
+    fenzhiqueren () {
       this.dialogFormVisible = false;
       this.fenzhi[this.fenzhi.length] = {
         title: "分支" + (this.fenzhi.length + 1),
@@ -109,13 +95,13 @@ export default {
       };
       this.form.textarea = "";
     },
-    returnBack() {
+    returnBack () {
       let data = false;
       this.$emit("returnBacks", data);
     },
   },
   computed: {
-    displayReady() {
+    displayReady () {
       return this.storyDetail.display;
     },
   },
@@ -126,9 +112,24 @@ export default {
 .el-collapse-item__header {
   margin: 0 auto;
 }
+
 .xvxie {
   display: flex;
 }
+
+.el-carousel {
+  height: 500px;
+}
+
+/deep/ .el-carousel__container {
+  height: 500px !important;
+
+}
+
+.el-carousel__indicators {
+  display: none;
+}
+
 .text {
   font-size: 14px;
 }
@@ -142,6 +143,7 @@ export default {
   display: table;
   content: "";
 }
+
 .clearfix:after {
   clear: both;
 }
@@ -149,6 +151,7 @@ export default {
 .box-card {
   width: 480px;
 }
+
 .storyDetail {
   background-color: #e9eef3;
   color: #333;
